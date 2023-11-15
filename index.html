@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            width: 250px;
+            margin: 0 auto;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 100px;
+        }
+        .result {
+            font-size: 24px;
+            border: 1px solid;
+            text-align: right;
+            margin-bottom: 10px;
+            min-height: 30px;
+        }
+        .button {
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            font-size: 18px;
+            margin: 2px;
+            cursor: pointer;
+        }
+        .button.operator {
+            background-color: aqua;
+        }
+        .blank-row {
+            height: 50px; 
+            border: 1px solid;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="result" id="display"></div>
+        <button class="button" onclick="append('7')">7</button>
+        <button class="button" onclick="append('8')">8</button>
+        <button class="button" onclick="append('9')">9</button>
+        <button class="button operator" onclick="append('+')">+</button>
+        <button class="button" onclick="append('4')">4</button>
+        <button class="button" onclick="append('5')">5</button>
+        <button class="button" onclick="append('6')">6</button>
+        <button class="button operator" onclick="append('-')">-</button>
+        <button class="button" onclick="append('1')">1</button>
+        <button class="button" onclick="append('2')">2</button>
+        <button class="button" onclick="append('3')">3</button>
+        <button class="button operator" onclick="append('*')">*</button>
+        <button class="button" onclick="append('0')">0</button>
+        <button class="button" onclick="append('.')">.</button>
+        <button class="button operator" onclick="append('/')">/</button>
+        <button class="button operator" onclick="clearDisplay()">C</button>
+        <button class="button operator" onclick="calculate()">=</button>
+        <div class="blank-row">MYKHENZY YAP</div>
+    </div>
+
+    <script>
+        function append(value) {
+            var display = document.getElementById('display');
+            display.innerHTML = display.innerHTML + value;
+        }
+
+        function clearDisplay() {
+            var display = document.getElementById('display');
+            display.innerHTML = '';
+        }
+
+        function calculate() {
+            var display = document.getElementById('display');
+            display.innerHTML = eval(display.innerHTML);
+        }
+    </script>
+</body>
+</html>
